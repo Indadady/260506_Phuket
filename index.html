@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[투어메이커] 프리미엄 힐링 푸켓 3박 5일 (5/6 출발)</title>
     
-    <!-- Open Graph: 카톡 공유시 보여질 썸네일 (요청하신 태국 풍경 사진) -->
+    <!-- Open Graph: 카톡 공유시 보여질 썸네일 (고화질 태국 풍경) -->
     <meta property="og:title" content="[투어메이커] 프리미엄 힐링 푸켓 3박 5일 (5/6 확정)">
     <meta property="og:description" content="그랜드 머큐어 3연박 | 라차섬 투어 | 아로마스파 2.5시간 | 푸켓 올드타운">
     <meta property="og:image" content="https://i1.pickpik.com/photos/39/126/439/nature-thailand-thumb.jpg">
@@ -39,7 +39,7 @@
             color: #334155; 
         }
         
-        /* Hero Background - 요청하신 푸켓 바다/보트 배경 */
+        /* Hero Background - 푸켓 바다/보트 배경 */
         .hero-bg-tropical { 
             background: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.6)), url('https://w0.peakpx.com/wallpaper/445/397/HD-wallpaper-phuket-island-blue-boats-islands-ocean-teal.jpg');
             background-size: cover;
@@ -218,12 +218,12 @@
             </div>
         </section>
 
-        <!-- 해외 전용 위젯: 실시간 날씨 및 환율 -->
-        <section id="widgets" class="py-10 bg-slate-50">
+        <!-- 🌟 해외 전용 위젯: 실시간 날씨 및 환율 (원칙 완벽 반영) -->
+        <section id="widgets" class="py-10 bg-slate-50 border-t border-slate-200">
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="grid md:grid-cols-2 gap-6">
                     
-                    <!-- 날씨 위젯 & 옷차림 추천 -->
+                    <!-- 1. 실시간 주간 날씨 & 옷차림 -->
                     <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
                         <h3 class="font-bold text-slate-800 mb-4 flex items-center justify-between">
                             <div class="flex items-center"><i class="fa-solid fa-cloud-sun text-amber-500 mr-2 text-lg"></i> 푸켓 실시간 주간 날씨</div>
@@ -234,7 +234,7 @@
                                 <i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><br>날씨 정보를 불러오는 중입니다...
                             </div>
                         </div>
-                        <!-- 날씨 맞춤 옷차림 가이드 탭 -->
+                        <!-- 현지기후/실내에어컨 반영 맞춤 옷차림 (필수 원칙) -->
                         <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
                             <h4 class="text-xs font-bold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-shirt mr-1.5 text-sm"></i> 현지 기후 맞춤 옷차림 추천</h4>
                             <p class="text-xs text-slate-700 leading-relaxed">
@@ -243,40 +243,81 @@
                         </div>
                     </div>
 
-                    <!-- 환율 및 물가 위젯 -->
-                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+                    <!-- 2&3. 체감환율 & 계산기 & 현지 물가 (원칙 반영) -->
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex flex-col">
                         <h3 class="font-bold text-slate-800 mb-4 flex items-center justify-between">
                             <div class="flex items-center"><i class="fa-solid fa-money-bill-transfer text-emerald-500 mr-2 text-lg"></i> 실시간 체감 환율 & 물가</div>
-                            <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded">송금 수수료(1.5%) 반영</span>
+                            <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded border border-slate-200">송금 수수료 1.5% 반영</span>
                         </h3>
                         
-                        <div class="flex items-end gap-2 mb-5 bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                        <!-- 2. 체감환율 표출 -->
+                        <div class="flex items-end gap-2 mb-4 bg-emerald-50 p-3 rounded-xl border border-emerald-100">
                             <span class="text-slate-600 font-bold">1 바트 (THB) =</span>
                             <span id="exchange-rate-val" class="text-2xl font-black text-emerald-600">--.--</span>
                             <span class="text-sm text-slate-600 font-bold mb-1">원</span>
                         </div>
 
-                        <div class="space-y-3">
-                            <p class="text-xs text-slate-500 font-bold">🇹🇭 현지 물가 체감하기 (1:1 비교)</p>
-                            <!-- 비교 바 (Bar) -->
+                        <!-- 2-1. 실시간 환율 계산기 (입력형) -->
+                        <div class="mb-5 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="text-xs font-bold text-slate-700 mb-2 flex items-center"><i class="fa-solid fa-calculator mr-1"></i> 실시간 환율 계산기 <span class="text-[10px] font-normal text-slate-400 ml-2">흥정할 때 바로 계산해 보세요!</span></h4>
+                            <div class="flex items-center gap-2 mt-2">
+                                <div class="relative flex-1">
+                                    <input type="number" id="calc-input-thb" class="w-full pl-3 pr-10 py-2 rounded-lg border border-slate-200 text-right font-bold text-slate-800 outline-none focus:ring-2 focus:ring-emerald-300" placeholder="100">
+                                    <span class="absolute right-3 top-2.5 text-xs font-bold text-slate-400">THB</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-right-arrow-left text-slate-400 text-sm"></i>
+                                <div class="relative flex-1">
+                                    <input type="text" id="calc-output-krw" class="w-full pl-3 pr-10 py-2 rounded-lg border border-emerald-200 bg-white text-right font-bold text-emerald-600" readonly placeholder="0">
+                                    <span class="absolute right-3 top-2.5 text-xs font-bold text-slate-400">원</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. 현지 물가 직관적 비교 (필수 5종) -->
+                        <div class="space-y-3 flex-grow">
+                            <p class="text-xs text-slate-500 font-bold mb-2">🇹🇭 현지 물가 체감하기 (필수 소비재 5종)</p>
                             <div class="flex items-center justify-between text-sm bg-slate-50 p-2 rounded">
-                                <div class="flex items-center w-1/3"><i class="fa-solid fa-mug-hot text-amber-700 mr-2"></i> 아메리카노</div>
-                                <div class="w-1/3 text-center text-xs text-slate-500">약 120 THB</div>
-                                <div class="w-1/3 text-right font-bold text-slate-800" id="price-coffee">계산중</div>
+                                <div class="flex items-center w-5/12"><i class="fa-solid fa-mug-hot text-amber-700 mr-2 w-4 text-center"></i>스타벅스 커피</div>
+                                <div class="w-3/12 text-center text-xs text-slate-500">120 THB</div>
+                                <div class="w-4/12 text-right font-bold text-slate-800" id="price-coffee">계산중</div>
+                            </div>
+                            <div class="flex items-center justify-between text-sm bg-white p-2 rounded border border-slate-50">
+                                <div class="flex items-center w-5/12"><i class="fa-solid fa-bottle-water text-sky-500 mr-2 w-4 text-center"></i>편의점 생수</div>
+                                <div class="w-3/12 text-center text-xs text-slate-500">10 THB</div>
+                                <div class="w-4/12 text-right font-bold text-slate-800" id="price-water">계산중</div>
                             </div>
                             <div class="flex items-center justify-between text-sm bg-slate-50 p-2 rounded">
-                                <div class="flex items-center w-1/3"><i class="fa-solid fa-bottle-water text-sky-500 mr-2"></i> 생수(편의점)</div>
-                                <div class="w-1/3 text-center text-xs text-slate-500">약 10 THB</div>
-                                <div class="w-1/3 text-right font-bold text-slate-800" id="price-water">계산중</div>
+                                <div class="flex items-center w-5/12"><i class="fa-solid fa-truck-pickup text-red-500 mr-2 w-4 text-center"></i>툭툭이 (기본)</div>
+                                <div class="w-3/12 text-center text-xs text-slate-500">200 THB</div>
+                                <div class="w-4/12 text-right font-bold text-slate-800" id="price-transit">계산중</div>
+                            </div>
+                            <div class="flex items-center justify-between text-sm bg-white p-2 rounded border border-slate-50">
+                                <div class="flex items-center w-5/12"><i class="fa-solid fa-bowl-food text-orange-500 mr-2 w-4 text-center"></i>로컬 팟타이</div>
+                                <div class="w-3/12 text-center text-xs text-slate-500">80 THB</div>
+                                <div class="w-4/12 text-right font-bold text-slate-800" id="price-padthai">계산중</div>
                             </div>
                             <div class="flex items-center justify-between text-sm bg-slate-50 p-2 rounded">
-                                <div class="flex items-center w-1/3"><i class="fa-solid fa-truck-pickup text-red-500 mr-2"></i> 툭툭이(기본)</div>
-                                <div class="w-1/3 text-center text-xs text-slate-500">약 200 THB</div>
-                                <div class="w-1/3 text-right font-bold text-slate-800" id="price-transit">계산중</div>
+                                <div class="flex items-center w-5/12"><i class="fa-solid fa-spa text-pink-400 mr-2 w-4 text-center"></i>발마사지(1시간)</div>
+                                <div class="w-3/12 text-center text-xs text-slate-500">300 THB</div>
+                                <div class="w-4/12 text-right font-bold text-slate-800" id="price-massage">계산중</div>
                             </div>
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- 🌟 추천 영상 (YouTube Curation) -->
+        <section id="video" class="py-16 bg-white border-t border-slate-200">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-8">
+                    <span class="bg-sky-100 text-sky-700 text-xs font-bold px-3 py-1 rounded-full border border-sky-200 uppercase tracking-wider">미리 보는 푸켓</span>
+                    <h2 class="text-3xl font-bold mt-4 text-slate-800">에메랄드빛 안다만해의 매력</h2>
+                    <p class="text-slate-500 mt-2 text-sm">출발 전, 태국 푸켓의 아름다운 풍경을 영상으로 만나보세요.</p>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200 relative pb-[56.25%] h-0 max-w-4xl mx-auto bg-black">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/S2gX7g7j-B0?si=O3vYw4t8x9_IeNfR&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -369,7 +410,7 @@
             </div>
         </section>
 
-        <!-- 4. Map Section (한눈에 보는 동선) -->
+        <!-- 4. Map Section -->
         <section id="map-section" class="py-16 bg-white border-b border-slate-100">
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="text-center mb-8">
@@ -408,7 +449,6 @@
                     <p class="text-slate-500 text-sm mt-2">휴양과 감성 관광이 조화된 완벽한 푸켓 스케줄</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    <!-- 변경된 이미지 적용 (라차섬) -->
                     <div class="group relative rounded-xl overflow-hidden shadow-lg h-64 border border-slate-200">
                         <img src="https://airial.travel/_next/image?q=70&url=https%3A%2F%2Fwww.phuketdivetours.com%2Fwp-content%2Fuploads%2FSnorkeling-Phuket-Racha-Islands.jpg&w=3840" class="w-full h-full object-cover hover-zoom" alt="Racha Island">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -416,7 +456,6 @@
                             <p class="text-xs opacity-90">태국의 몰디브라 불리는 에메랄드빛 바다 스노클링</p>
                         </div>
                     </div>
-                    <!-- 변경된 이미지 적용 (올드타운) -->
                     <div class="group relative rounded-xl overflow-hidden shadow-lg h-64 border border-slate-200">
                         <img src="https://www.thavornbeachvillage.com/upload/blog-files/1690883717.9975.jpg" class="w-full h-full object-cover hover-zoom" alt="Phuket Old Town">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -424,7 +463,6 @@
                             <p class="text-xs opacity-90">포르투갈풍 건축물과 감성 가득한 빈티지 거리</p>
                         </div>
                     </div>
-                    <!-- 변경된 이미지 적용 (스파) -->
                     <div class="group relative rounded-xl overflow-hidden shadow-lg h-64 border border-slate-200">
                         <img src="https://res.klook.com/image/upload/w_750%2Ch_469%2Cc_fill%2Cq_85/w_80%2Cx_15%2Cy_15%2Cg_south_west%2Cl_Klook_water_br_trans_yhcmh3/activities/hd3mhidcmrbhq6dnsksx.jpg" class="w-full h-full object-cover hover-zoom" alt="Spa">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -443,7 +481,7 @@
                     <h2 class="text-3xl font-bold text-slate-800">상세 일정표</h2>
                 </div>
 
-                <!-- Modetour Official Link Box (새로 추가됨) -->
+                <!-- Modetour Official Link Box -->
                 <div class="max-w-3xl mx-auto mb-8 animate-fade-in-up">
                     <div class="bg-sky-50 rounded-xl shadow-sm border border-sky-200 p-4 md:p-5 flex flex-col md:flex-row items-center justify-between gap-4">
                         <div class="flex items-start gap-3">
@@ -611,7 +649,6 @@
                         </p>
                     </div>
 
-                    <!-- 변경된 이미지 적용 (호텔) -->
                     <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200 hover:shadow-lg transition-shadow max-w-3xl mx-auto">
                         <div class="relative h-64 md:h-80">
                             <img src="https://www.ahstatic.com/photos/8109_ho_00_p_1024x768.jpg" class="w-full h-full object-cover" alt="Hotel Pool">
@@ -631,7 +668,7 @@
             </div>
         </section>
 
-        <!-- 7. Assistant (Checklist & Memo) -->
+        <!-- 7. Assistant -->
         <section id="assistant" class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10">
@@ -696,12 +733,9 @@
     <footer class="bg-slate-900 text-slate-400 py-16 text-center text-sm border-t border-slate-800">
         <div class="container mx-auto px-4">
             
-            <!-- Partner Logos -->
             <div class="inline-flex justify-center items-center gap-6 mb-8 bg-white rounded-xl py-4 px-8 shadow-lg">
-                <!-- Tourmaker -->
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-5 md:h-6 w-auto">
                 <span class="text-xl text-slate-300 font-light">|</span>
-                <!-- Mode Tour -->
                 <img src="https://tse1.mm.bing.net/th/id/OIP.UG_hLbqpXWlMr511Wm-bMwHaEl?pid=Api&P=0&h=220" alt="Modetour" class="h-10 md:h-12 w-auto">
             </div>
 
@@ -712,13 +746,20 @@
                 <p class="text-xs text-slate-500 leading-relaxed mt-4">
                     [알림] 웹 페이지 내 일부 이미지는 이해를 돕기 위한 연출된 이미지이거나 인공지능(AI) 기술을 활용해 생성된 것으로 실제와 다를 수 있습니다.
                 </p>
-                <p class="text-[10px] text-slate-600 mt-4">
+                <p class="text-[10px] text-slate-600 mt-4 mb-8">
                     &copy; 2026 Tourmaker. All Rights Reserved.
                 </p>
 
-                <!-- Tourmaker System Powered Box (지시사항 반영) -->
-                <div style="background-color: #f8f9fa; font-size: 12px; text-align: center; color: #6c757d; padding: 15px; border-radius: 8px; margin-top: 20px;">
-                    [System Powered by TOURMAKER] 본 스마트 가이드북은 <strong>투어메이커</strong>의 기획과 <a href="https://tourmaker.kr" target="_blank" style="color: #6c757d; text-decoration: underline; font-weight: bold;">투어메이커</a>의 트래블 테크 기술 제휴로 제작되었습니다.
+                <!-- Tourmaker 바로가기 버튼 추가 -->
+                <div class="mb-8">
+                    <a href="https://tourmaker.kr" target="_blank" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white text-sm font-bold py-3 px-8 rounded-full transition-all shadow-md">
+                        <span>투어메이커 홈페이지 바로가기</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <div style="background-color: #f8f9fa; font-size: 12px; text-align: center; color: #6c757d; padding: 15px; border-radius: 8px;">
+                    [System Powered by TOURMAKER] 본 스마트 가이드북은 <strong>모두투어</strong>의 기획과 <a href="https://tourmaker.kr" target="_blank" style="color: #6c757d; text-decoration: underline; font-weight: bold;">투어메이커</a>의 트래블 테크 기술 제휴로 제작되었습니다.
                 </div>
             </div>
         </div>
@@ -737,20 +778,17 @@
             if (!badge || !mainText) return;
 
             if (now < start) {
-                // 행사 전
                 const diff = Math.ceil((start - now) / (1000 * 60 * 60 * 24));
                 badge.innerText = `D-${diff}`;
                 badge.className = "bg-sky-500 text-white text-[10px] md:text-xs font-bold px-2 py-1 rounded-full shadow animate-pulse";
                 mainText.innerHTML = "2026.05.06 (수) - 05.10 (일) | 대한항공";
             } else if (now >= start && now <= end) {
-                // 행사 중
                 const dayDiff = Math.floor((now - start) / (1000 * 60 * 60 * 24)) + 1;
                 badge.innerText = `📍 ${dayDiff}일차 진행중`;
                 badge.className = "bg-amber-500 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow animate-pulse";
                 mainText.innerHTML = `현재 <strong>푸켓 투어</strong>의 <strong>${dayDiff}</strong>일차 여정이 활기차게 진행되고 있습니다.`;
                 mainText.className = "text-base md:text-lg text-amber-100 mb-8 font-bold tracking-wide bg-black/60 px-5 py-2.5 rounded-full backdrop-blur-md border border-amber-300 shadow-lg";
             } else {
-                // 행사 종료
                 badge.innerText = "🏁 여정 종료";
                 badge.className = "bg-slate-500 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow";
                 mainText.innerHTML = "모든 여정이 종료되었습니다. 좋은 추억으로 오래 간직되길 바랍니다.";
@@ -852,7 +890,7 @@
             });
         });
 
-        // --- 3. Overseas Widget (Weather & Exchange) ---
+        // --- 3. Overseas Widget (Weather, Exchange Calculator & 5 Items Compare) ---
         async function loadOverseasWidgets() {
             // Weather (Phuket: Lat 7.88, Lng 98.39)
             try {
@@ -889,20 +927,32 @@
                 document.getElementById('weather-container').innerHTML = '<div class="text-xs text-red-500 p-2">날씨 정보를 불러오지 못했습니다.</div>';
             }
 
-            // Exchange Rate (THB) & Price Comparison
+            // Exchange Rate (THB) & Calculator & 5 Price Compare
             try {
                 const exRes = await fetch('https://open.er-api.com/v6/latest/THB');
                 const exData = await exRes.json();
                 
-                // 스프레드 1.015 적용 (고객 체감 송금/현찰 환율)
+                // 1. 체감환율 (송금수수료 1.5% 적용)
                 const realRate = (exData.rates.KRW * 1.015).toFixed(2);
                 document.getElementById('exchange-rate-val').innerText = realRate;
 
-                // Price compare calc
                 const r = parseFloat(realRate);
+
+                // 2. Calculator Logic
+                const thbInput = document.getElementById('calc-input-thb');
+                const krwOutput = document.getElementById('calc-output-krw');
+                
+                thbInput.addEventListener('input', (e) => {
+                    const val = parseFloat(e.target.value) || 0;
+                    krwOutput.value = Math.round(val * r).toLocaleString();
+                });
+
+                // 3. Price compare calc (5 Items)
                 document.getElementById('price-coffee').innerText = `약 ${Math.round(120 * r).toLocaleString()}원`;
                 document.getElementById('price-water').innerText = `약 ${Math.round(10 * r).toLocaleString()}원`;
                 document.getElementById('price-transit').innerText = `약 ${Math.round(200 * r).toLocaleString()}원`;
+                document.getElementById('price-padthai').innerText = `약 ${Math.round(80 * r).toLocaleString()}원`;
+                document.getElementById('price-massage').innerText = `약 ${Math.round(300 * r).toLocaleString()}원`;
             } catch(e) {
                 document.getElementById('exchange-rate-val').innerText = '오류';
                 console.error("환율 로딩 에러");
@@ -944,9 +994,7 @@
         }
         document.getElementById("day1").style.display = "block";
 
-        const PREFIX = 'tm_Phuket_20260506_v2_'; // 체크리스트 버전 업데이트
-        
-        // 체크리스트를 좀 더 상세하고 실용적으로 개선
+        const PREFIX = 'tm_Phuket_20260506_v4_';
         const checklistData = [
             { id: 'pass', text: '여권 (만료일 6개월 이상 필수, 여권 사본 1장 추가)' },
             { id: 'tdac', text: '태국 입국카드(TDAC) 완료 화면 캡쳐본 준비' },
