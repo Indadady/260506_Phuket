@@ -73,6 +73,12 @@
         #map { z-index: 10; border-radius: 0.75rem; }
         .map-btn.active { background-color: #0f172a; color: white; border-color: #0f172a; }
         .leaflet-popup-content-wrapper { border-radius: 0.5rem; font-family: 'Noto Sans KR', sans-serif; }
+        
+        /* ✨ 마커 애니메이션을 위한 CSS 추가 */
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            100% { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body class="antialiased pb-20 md:pb-0">
@@ -113,11 +119,11 @@
         <section id="home" class="hero-bg-tropical min-h-[85vh] flex items-center justify-center text-center px-4 relative scroll-mt-0">
             <div class="z-10 text-white max-w-5xl w-full animate-fade-in-up flex flex-col items-center">
                 
-                <h1 class="text-4xl md:text-6xl font-[Nanum Myeongjo] font-bold leading-tight text-white drop-shadow-xl mb-4">
+                <h1 class="text-3xl sm:text-4xl md:text-6xl font-[Nanum Myeongjo] font-bold leading-tight text-white drop-shadow-xl mb-4">
                     에메랄드빛 안다만해,<br>완벽한 힐링 휴양 푸켓
                 </h1>
 
-                <p id="hero-main-text" class="text-base md:text-lg text-slate-100 mb-8 font-medium tracking-wide bg-black/40 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/10 shadow-lg">
+                <p id="hero-main-text" class="text-sm sm:text-base md:text-lg text-slate-100 mb-8 font-medium tracking-wide bg-black/40 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/10 shadow-lg">
                     2026.05.06 (수) - 05.10 (일) | 대한항공
                 </p>
 
@@ -166,22 +172,22 @@
                             <p class="font-bold text-slate-800 text-sm">현지 전문 가이드 배정완료</p>
                         </div>
                     </div>
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-center">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-center col-span-1 md:col-span-1">
                         <div class="text-center">
                             <p class="text-xs text-slate-500 mb-1">이용 차량</p>
                             <p class="font-bold text-slate-800"><i class="fa-solid fa-car-side mr-1"></i>전용 차량</p>
                         </div>
                     </div>
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-center">
-                        <div class="text-center">
-                            <p class="text-xs text-slate-500 mb-1">숙소 확인</p>
-                            <p class="font-bold text-slate-800 text-xs">그랜드머큐어 푸켓 (5성)</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-center">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-center col-span-1 md:col-span-1">
                         <div class="text-center">
                             <p class="text-xs text-slate-500 mb-1">항공편</p>
                             <p class="font-bold text-slate-800 text-xs"><i class="fa-solid fa-plane text-sky-600 mr-1"></i>대한항공(KE)</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-center col-span-2 md:col-span-1">
+                        <div class="text-center">
+                            <p class="text-xs text-slate-500 mb-1">숙소 확인</p>
+                            <p class="font-bold text-slate-800 text-xs">그랜드머큐어 푸켓 (5성)</p>
                         </div>
                     </div>
                 </div>
@@ -262,12 +268,12 @@
                             <h4 class="text-xs font-bold text-slate-700 mb-2 flex items-center"><i class="fa-solid fa-calculator mr-1"></i> 실시간 환율 계산기 <span class="text-[10px] font-normal text-slate-400 ml-2">흥정할 때 바로 계산해 보세요!</span></h4>
                             <div class="flex items-center gap-2 mt-2">
                                 <div class="relative flex-1">
-                                    <input type="number" id="calc-input-thb" class="w-full pl-3 pr-10 py-2 rounded-lg border border-slate-200 text-right font-bold text-slate-800 outline-none focus:ring-2 focus:ring-emerald-300" placeholder="100">
+                                    <input type="number" id="calc-input-thb" class="w-full pl-3 pr-10 py-2 rounded-lg border border-slate-200 text-right font-bold text-slate-800 text-base outline-none focus:ring-2 focus:ring-emerald-300" placeholder="100">
                                     <span class="absolute right-3 top-2.5 text-xs font-bold text-slate-400">THB</span>
                                 </div>
                                 <i class="fa-solid fa-arrow-right-arrow-left text-slate-400 text-sm"></i>
                                 <div class="relative flex-1">
-                                    <input type="text" id="calc-output-krw" class="w-full pl-3 pr-10 py-2 rounded-lg border border-emerald-200 bg-white text-right font-bold text-emerald-600" readonly placeholder="0">
+                                    <input type="text" id="calc-output-krw" class="w-full pl-3 pr-10 py-2 rounded-lg border border-emerald-200 bg-white text-right font-bold text-emerald-600 text-base" readonly placeholder="0">
                                     <span class="absolute right-3 top-2.5 text-xs font-bold text-slate-400">원</span>
                                 </div>
                             </div>
@@ -313,11 +319,11 @@
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="text-center mb-8">
                     <span class="bg-sky-100 text-sky-700 text-xs font-bold px-3 py-1 rounded-full border border-sky-200 uppercase tracking-wider">미리 보는 푸켓</span>
-                    <h2 class="text-3xl font-bold mt-4 text-slate-800">에메랄드빛 안다만해의 매력</h2>
+                    <h2 class="text-2xl sm:text-3xl font-bold mt-4 text-slate-800">에메랄드빛 안다만해의 매력</h2>
                     <p class="text-slate-500 mt-2 text-sm">출발 전, 태국 푸켓의 아름다운 풍경을 영상으로 만나보세요.</p>
                 </div>
                 <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200 relative pb-[56.25%] h-0 max-w-4xl mx-auto bg-black">
-                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/KrV-EOBbTn8?autoplay=1&mute=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/KrV-EOBbTn8?rel=0&controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -356,9 +362,6 @@
                         <h3 class="font-bold text-lg text-slate-800 mb-2">이메일 확인 및 QR 캡쳐</h3>
                         <p class="text-xs text-slate-500">제출 후 이메일로 수신된 파일의 <span class="text-sky-600 font-bold">QR코드</span>를 사진첩에 캡쳐해 두세요.</p>
                     </div>
-                </div>
-                <div class="mt-8 text-center">
-                    <p class="text-xs text-slate-500 mb-4">* 대행 서비스를 원하시는 분은 투어메이커 예약담당자에게 출발 전 별도 요청 바랍니다.</p>
                 </div>
             </div>
         </section>
@@ -436,7 +439,7 @@
                         <div class="flex items-center gap-2 mb-1"><span class="w-4 h-1 bg-amber-500 inline-block rounded"></span> 3일차</div>
                         <div class="flex items-center gap-2"><span class="w-4 h-1 bg-sky-500 inline-block rounded"></span> 4일차</div>
                     </div>
-                    <div id="map" class="w-full h-[400px] md:h-[500px]"></div>
+                    <div id="map" class="w-full h-[300px] md:h-[500px]"></div>
                 </div>
             </div>
         </section>
@@ -833,51 +836,89 @@
         let currentLayerGroup = L.layerGroup().addTo(map);
 
         function drawRoute(dayKey) {
-            currentLayerGroup.clearLayers();
             const legend = document.getElementById('map-legend');
             const daysToDraw = dayKey === 'all' ? ['1', '2', '3', '4'] : [dayKey];
             
             if(dayKey === 'all') legend.classList.remove('hidden');
             else legend.classList.add('hidden');
 
+            // 1. 먼저 모든 좌표를 수집하여 지도의 포커스(줌/이동)를 맞춥니다.
             let allBounds = [];
-            const drawnMarkers = new Set();
-
             daysToDraw.forEach(day => {
-                const routePoints = routes[day];
-                if (!routePoints) return;
-
-                const latlngs = routePoints.map(pt => [pt.lat, pt.lng]);
-                allBounds.push(...latlngs);
-                
-                L.polyline(latlngs, {
-                    color: dayColors[day],
-                    weight: dayKey === 'all' ? 3 : 4,
-                    opacity: 0.8,
-                    dashArray: dayKey === 'all' ? '5, 10' : '' 
-                }).addTo(currentLayerGroup);
-
-                routePoints.forEach((pt, index) => {
-                    if (drawnMarkers.has(pt.title)) return;
-                    drawnMarkers.add(pt.title);
-                    
-                    const isStartOrEnd = (index === 0) || (index === routePoints.length - 1);
-                    const customIcon = L.divIcon({
-                        className: 'custom-map-marker',
-                        html: `<div style="background-color: white; border: 2px solid ${dayColors[day]}; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); z-index: ${isStartOrEnd ? 1000 : 100}; position: relative;">${pt.icon}</div>`,
-                        iconSize: [30, 30],
-                        iconAnchor: [15, 15]
-                    });
-
-                    L.marker([pt.lat, pt.lng], { icon: customIcon })
-                     .bindPopup(`<b class="text-sm">${pt.title}</b>`)
-                     .addTo(currentLayerGroup);
-                });
+                if (routes[day]) {
+                    routes[day].forEach(pt => allBounds.push([pt.lat, pt.lng]));
+                }
             });
 
             if (allBounds.length > 0) {
-                map.fitBounds(allBounds, { padding: [40, 40] });
+                map.fitBounds(allBounds, { padding: [40, 40], animate: true });
             }
+
+            // 2. 지도 이동이 안정화될 시간을 살짝(300ms) 준 뒤 레이어와 애니메이션을 추가합니다.
+            setTimeout(() => {
+                currentLayerGroup.clearLayers();
+                const drawnMarkers = new Set();
+
+                daysToDraw.forEach(day => {
+                    const routePoints = routes[day];
+                    if (!routePoints) return;
+
+                    const latlngs = routePoints.map(pt => [pt.lat, pt.lng]);
+                    
+                    const routeLine = L.polyline(latlngs, {
+                        color: dayColors[day],
+                        weight: dayKey === 'all' ? 3 : 5, // 애니메이션 시 선을 굵게 강조
+                        opacity: 0.8,
+                        dashArray: dayKey === 'all' ? '5, 10' : '' 
+                    });
+                    
+                    routeLine.addTo(currentLayerGroup);
+
+                    // ✨ 선이 출발지부터 스르륵 그려지는 애니메이션
+                    if (dayKey !== 'all') {
+                        setTimeout(() => {
+                            const path = routeLine._path;
+                            if (path) {
+                                const length = path.getTotalLength();
+                                path.style.transition = 'none';
+                                path.style.strokeDasharray = length + ' ' + length;
+                                path.style.strokeDashoffset = length; // 완전히 숨김
+                                path.getBoundingClientRect(); // 강제 Reflow
+                                path.style.transition = 'stroke-dashoffset 2s ease-in-out'; // 2초간 그리기
+                                path.style.strokeDashoffset = '0';
+                                
+                                // 애니메이션 완료 후 스타일 초기화
+                                setTimeout(() => {
+                                    path.style.transition = '';
+                                    path.style.strokeDasharray = '';
+                                    path.style.strokeDashoffset = '';
+                                }, 2500);
+                            }
+                        }, 50);
+                    }
+
+                    routePoints.forEach((pt, index) => {
+                        if (drawnMarkers.has(pt.title)) return;
+                        drawnMarkers.add(pt.title);
+                        
+                        const isStartOrEnd = (index === 0) || (index === routePoints.length - 1);
+                        // ✨ JS가 아닌 CSS 애니메이션과 delay를 활용하여 좌표 충돌(도망가는 현상) 완벽 해결
+                        const animDelay = dayKey === 'all' ? 0 : index * 0.5; // 0.5초 간격으로 통통 튀어오름
+                        
+                        const customIcon = L.divIcon({
+                            className: 'custom-map-marker-wrapper', // 겉 껍데기(좌표 유지용)
+                            html: `<div style="background-color: white; border: 2px solid ${dayColors[day]}; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); opacity: 0; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards ${animDelay}s;">${pt.icon}</div>`, // 알맹이에만 애니메이션 적용
+                            iconSize: [30, 30],
+                            iconAnchor: [15, 15]
+                        });
+
+                        const marker = L.marker([pt.lat, pt.lng], { icon: customIcon })
+                         .bindPopup(`<b class="text-sm">${pt.title}</b>`);
+
+                        marker.addTo(currentLayerGroup);
+                    });
+                });
+            }, 300);
         }
 
         drawRoute('all');
@@ -1010,10 +1051,10 @@
         const container = document.getElementById('checklist-container');
         checklistData.forEach(item => {
             const label = document.createElement('label');
-            label.className = 'flex items-center p-3 bg-slate-50 rounded-lg border border-slate-100 hover:bg-sky-50 transition-colors cursor-pointer mb-2 select-none';
+            label.className = 'flex items-center p-4 sm:p-3 bg-slate-50 rounded-xl border border-slate-100 hover:bg-sky-50 transition-colors cursor-pointer mb-2 select-none shadow-sm';
             label.innerHTML = `
                 <input type="checkbox" id="${item.id}" class="w-5 h-5 text-sky-600 rounded border-gray-300 focus:ring-sky-500 cursor-pointer">
-                <span class="ml-3 text-slate-700 font-medium flex-grow text-sm">${item.text}</span>
+                <span class="ml-3 text-slate-700 font-medium flex-grow text-sm sm:text-base leading-snug">${item.text}</span>
             `;
             container.appendChild(label);
             
